@@ -32,117 +32,15 @@ public class Main {
             sum23 = sum23 + Invoice.getNettoValue();
     }
 
-    //lengths of each value
-    int nettoSumLen = Double.toString(sum23+sum8).length();
-    int vat8NettoValueSumLen = Double.toString(sum8).length();
-    int vat23NettoValueSumLen = Double.toString(sum23).length();
-    int vat8ValueSumLen = Double.toString(sum8*0.08).length();
-    int vat23ValueSumLen = Double.toString(sum23*0.23).length();
-    int vatFullValueSumLen = Double.toString(sum23*0.23+sum8*0.08).length();
+
+    System.out.printf("| %13s | %3s %-9s | %3s %-9s |%n", "","",sum23+sum8,"",sum23*0.23 + sum8*0.08);
 
 
-    //first row - sum of netto and sum of netto*vat
- 
-    System.out.print("|");
+    System.out.printf("|%-13s|%-13s|%-13s|%n", "---------------","---------------","---------------");
 
-    for (int i = 0; i < 15; i++) 
-    {
-        System.out.print(" ");
-    }
+    System.out.printf("| %-13s | %3s %-9s | %3s %-9s |%n", "VAT 8%","",sum8,"",sum8*0.08);
 
-    System.out.print("|");
-
-    for (int i = 0; i < 15; i++) 
-    {
-        if (i==(15/2)-nettoSumLen/2) 
-        {
-            System.out.print(sum23+sum8);
-            i = i + nettoSumLen - 1;    
-        }
-        else
-            System.out.print(" ");
-    }
-
-    //second row
-
-    System.out.print("|");
-
-    for (int i = 0; i < 15; i++) 
-    {
-        if (i==(15/2)-vatFullValueSumLen/2) 
-        {
-            System.out.print(sum23*0.23+sum8*0.08);
-            i = i + nettoSumLen - 2;    
-        }
-        else
-            System.out.print(" ");
-    }
-
-    System.out.print("|\n");
-
-    System.out.print("|---------------|---------------|---------------|\n");
-
-    //third row = netto 8% and netto 8% * vat
-
-    System.out.print("|VAT 8%         |");
-
-
-    for (int i = 0; i < 15; i++) 
-    {
-        if (i==(15/2)-vat8NettoValueSumLen/2) 
-        {
-            System.out.print(sum8);
-            i = i + nettoSumLen - 1;    
-        }
-        else
-            System.out.print(" ");
-    }
-
-    System.out.print("|");
-
-    for (int i = 0; i < 15; i++) 
-    {
-        if (i==(15/2)-vat8ValueSumLen/2) 
-        {
-            System.out.print(sum8*0.08);
-            i = i + nettoSumLen - 2;    
-        }
-        else
-            System.out.print(" ");
-    }
-
-    System.out.print("|\n");
-
-    //fourth row - netto of vat23% and netto*vat 23%
-
-    System.out.print("|VAT 23%        |");
-
-
-    for (int i = 0; i < 15; i++) 
-    {
-        if (i==(15/2)-vat23NettoValueSumLen/2) 
-        {
-            System.out.print(sum23);
-            i = i + nettoSumLen - 2;    
-        }
-        else
-            System.out.print(" ");
-    }
-
-    System.out.print("|");
-
-    for (int i = 0; i < 15; i++) 
-    {
-        if (i==(15/2)-vat23ValueSumLen/2) 
-        {
-            System.out.print(sum23*0.23);
-            i = i + nettoSumLen - 2;    
-        }
-        else
-            System.out.print(" ");
-    }
-
-    System.out.print("|\n");
+    System.out.printf("| %-13s | %3s %-9s | %3s %-9s |%n", "VAT 23%","",sum23,"",sum23*0.23);
 
     }
 }
