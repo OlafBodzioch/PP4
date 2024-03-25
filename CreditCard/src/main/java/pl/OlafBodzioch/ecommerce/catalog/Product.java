@@ -6,6 +6,9 @@ import java.util.UUID;
 public class Product {
     private final String id;
     private final String name;
+
+    private BigDecimal price;
+
     private final String description;
 
 
@@ -20,13 +23,24 @@ public class Product {
         return id;
     }
 
-    public String getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void changePrice(BigDecimal newPrice) {
+    public BigDecimal changePrice(BigDecimal price) {
 
-        this.price = newPrice;
+        return price;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }
