@@ -7,17 +7,20 @@ import java.util.UUID;
 
 public class ProductCatalog {
 
-    private ArrayList<Product> products;
+    private ArrayListProductStorage productStorage;
 
-    public ProductCatalog() {
+    public ProductCatalog()
+    {
 
-        this.products = new ArrayList<>();
+        this.productStorage = new ArrayListProductStorage();
 
     }
 
     public List<Product> allProducts()
     {
-        return products;
+
+        return productStorage.allProducts();
+
     }
 
     public String addProduct(String name, String description)
@@ -26,7 +29,7 @@ public class ProductCatalog {
         Product newProduct = new Product(id, name, description);
 
 
-        products.add(newProduct);
+        productStorage.add(newProduct);
         return newProduct.getId();
     }
 
@@ -39,10 +42,8 @@ public class ProductCatalog {
 
     public Product getProductBy(String id) {
 
-        return products.stream()
-                .filter(product -> product.getId().equals(id))
-                .findFirst()
-                .get();
+        return productStorage.getProductBy(id);
 
     }
+
 }
