@@ -2,9 +2,7 @@ package pl.OlafBodzioch.ecommerce.catalog;
 
 import org.junit.jupiter.api.Test;
 
-
 import static org.assertj.core.api.Assertions.*;
-
 
 import java.math.BigDecimal;
 import java.util.HashMap;

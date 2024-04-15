@@ -28,12 +28,12 @@ public class HasMapProductStorageTest {
 
     }
 
-    private Product thereIsProductStorage() {
+    private ProductStorage thereIsProductStorage() {
         return new HasMapProductStorage();
     }
 
     private Product thereIsExampleProduct() {
-        return new Product(UUID.randomUUID());
+        return new Product(UUID.randomUUID(),TEST_PRODUCT_NAME,"dsds");
     }
 
 

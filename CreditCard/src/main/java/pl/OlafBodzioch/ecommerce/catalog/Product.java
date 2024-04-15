@@ -27,9 +27,9 @@ public class Product {
         return price;
     }
 
-    public BigDecimal changePrice(BigDecimal price) {
+    public void changePrice(BigDecimal newPrice) {
 
-        return price;
+        this.price = newPrice;
     }
 
     public String getName() {
