@@ -5,6 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.OlafBodzioch.ecommerce.catalog.ProductCatalog;
+import pl.OlafBodzioch.ecommerce.sales.SalesFacade;
 
 @SpringBootApplication
 
@@ -23,6 +24,11 @@ public class App {
         catalog.addProduct("Cobi blocks","Mice one");
 
         return  catalog;
+    }
+    @Bean
+    SalesFacade CreateSale()
+    {
+        return new SalesFacade();
     }
 
 }
