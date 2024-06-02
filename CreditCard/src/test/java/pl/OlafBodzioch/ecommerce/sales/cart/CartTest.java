@@ -1,8 +1,11 @@
 package pl.OlafBodzioch.ecommerce.sales.cart;
 
 import org.junit.jupiter.api.Test;
-import pl.OlafBodzioch.ecommerce.sales.Cart;
+
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.*;
+
 
 public class CartTest {
 
@@ -110,11 +113,12 @@ public class CartTest {
         assertCartContainsXAmountOfProduct(lines, productY, 2);
     }
 
-    private void AssertCartContainsXAmountOfProduct(List<Cartline> lines, String productX, int );
-    assertThat(lines)
-        .filteredOn(cartLine.getProductId().equals(productId))
-        .extracting(cartLine.getQty())
-        .first()
-        .isEqualTo(expectedQuantity);
-
+    private void assertCartContainsXAmountOfProduct(List<CartLine> lines, String productId, int count)
+    {
+        assertThat(lines)
+                .filteredOn(cartLine -> cartLine.getProductId().equals(productId))
+                .extracting(cartLine -> cartLine.getQty())
+                .first()
+                .isEqualTo(count);
+    }
 }

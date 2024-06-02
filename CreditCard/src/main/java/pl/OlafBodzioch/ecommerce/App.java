@@ -5,7 +5,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.OlafBodzioch.ecommerce.catalog.ProductCatalog;
+import pl.OlafBodzioch.ecommerce.infastructure.PayUPaymentGw;
 import pl.OlafBodzioch.ecommerce.sales.SalesFacade;
+import pl.OlafBodzioch.ecommerce.sales.offering.OfferCalculator;
+import pl.OlafBodzioch.ecommerce.sales.reservation.ReservationRepository;
 
 @SpringBootApplication
 
@@ -25,10 +28,16 @@ public class App {
 
         return  catalog;
     }
+
     @Bean
-    SalesFacade CreateSale()
+    SalesFacade CreateSales()
     {
-        return new SalesFacade();
+        return new SalesFacade(
+                new CartStorage(),
+                new OfferCalculator(),
+                new PayUPaymentGw(),
+                new ReservationRepository()
+        );
     }
 
 }

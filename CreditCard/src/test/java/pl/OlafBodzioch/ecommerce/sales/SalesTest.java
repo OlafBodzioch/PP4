@@ -1,7 +1,11 @@
 package pl.OlafBodzioch.ecommerce.sales;
 
-import org.assertj.core.api.BigDecimalAssert;
 import org.junit.jupiter.api.Test;
+import pl.OlafBodzioch.ecommerce.infastructure.PayUPaymentGw;
+import pl.OlafBodzioch.ecommerce.sales.offering.Offer;
+import pl.OlafBodzioch.ecommerce.sales.offering.OfferCalculator;
+import pl.OlafBodzioch.ecommerce.sales.reservation.ReservationRepository;
+import pl.OlafBodzioch.ecommerce.sales.reservation.SpyPaymentGateway;
 
 import java.math.BigDecimal;
 
@@ -24,8 +28,13 @@ public class SalesTest {
         return id;
     }
 
-    private SalesFacade theresIsSalesFacade() {
-        return new SalesFacade();
+    private SalesFacade theresIsSales() {
+        return new SalesFacade(
+                new CartStorage(),
+                new OfferCalculator(),
+                new SpyPaymentGateway(),
+                new ReservationRepository()
+        );
     }
 
     @Test

@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
+import pl.OlafBodzioch.ecommerce.sales.offering.Offer;
+import pl.OlafBodzioch.ecommerce.sales.reservation.ReservationDetails;
 
 @RestController
 public class SalesController {

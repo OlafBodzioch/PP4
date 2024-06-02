@@ -10,7 +10,7 @@ public class AcceptOfferRequest {
         return lastname;
     }
 
-    public AcceptOfferRequest setLastname(String lastname) {
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setLastname(String lastname) {
         this.lastname = lastname;
         return this;
     }
@@ -19,7 +19,7 @@ public class AcceptOfferRequest {
         return email;
     }
 
-    public AcceptOfferRequest setEmail(String email) {
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -28,11 +28,11 @@ public class AcceptOfferRequest {
         return firstname;
     }
 
-    public AcceptOfferRequest setFirstname() {
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setFirstname() {
         return setFirstname(null);
     }
 
-    public AcceptOfferRequest setFirstname(String firstname) {
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setFirstname(String firstname) {
         this.firstname = firstname;
         return this;
     }
