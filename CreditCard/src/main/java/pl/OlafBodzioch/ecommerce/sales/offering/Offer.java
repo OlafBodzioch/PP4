@@ -11,6 +11,6 @@ public class Offer {
 
     public BigDecimal getTotal()
     {
-        return BigDecimal.valueOf(0);
+        return BigDecimal.ZERO;
     }
 }

@@ -23,10 +23,10 @@ public class SalesController {
     }
 
     @PostMapping("/api/accept-offer")
-    ReservationDetails acceptOffer()
+    ReservationDetails acceptOffer(AcceptOfferRequest acceptOfferRequest)
     {
         String customerId = getCurrentCustomerId();
-        ReservationDetails details = sales.acceptOffer(customerId);
+        ReservationDetails details = sales.acceptOffer(customerId, acceptOfferRequest);
         return details;
 
     }
@@ -40,7 +40,7 @@ public class SalesController {
 
     private String getCurrentCustomerId()
     {
-        return "bebek";
+        return "sumio";
     }
 
 

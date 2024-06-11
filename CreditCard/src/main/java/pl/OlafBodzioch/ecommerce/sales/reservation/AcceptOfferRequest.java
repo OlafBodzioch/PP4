@@ -1,36 +1,39 @@
-package pl.OlafBodzioch.ecommerce.sales;
+package pl.OlafBodzioch.ecommerce.sales.reservation;
 
 public class AcceptOfferRequest {
 
-    String firstName;
-    String lastName;
+    String firstname;
+    String lastname;
     String email;
 
-    public String getEmail()
-    {
+    public String getLastname() {
+        return lastname;
+    }
+
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setLastname(String lastname) {
+        this.lastname = lastname;
+        return this;
+    }
+
+    public String getEmail() {
         return email;
     }
 
-    public String firstName() {
-        return firstName;
-    }
-
-    public AcceptOfferRequest setFirstName(String firstName) {
-        this.firstName = firstName;
-        return this;
-    }
-
-    public String lastName() {
-        return lastName;
-    }
-
-    public AcceptOfferRequest setLastName(String lastName) {
-        this.lastName = lastName;
-        return this;
-    }
-
-    public AcceptOfferRequest setEmail(String email) {
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setEmail(String email) {
         this.email = email;
+        return this;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setFirstname() {
+        return setFirstname(null);
+    }
+
+    public pl.OlafBodzioch.ecommerce.sales.reservation.AcceptOfferRequest setFirstname(String firstname) {
+        this.firstname = firstname;
         return this;
     }
 }

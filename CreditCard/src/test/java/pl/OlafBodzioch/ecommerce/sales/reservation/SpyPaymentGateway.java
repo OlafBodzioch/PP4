@@ -15,7 +15,7 @@ public class SpyPaymentGateway implements PaymentGateway {
         return new PaymentDetails("http://spy-gateway");
     }
 
-    public int getRequestsCount() {
-        return 0;
+    public int getRequestCount() {
+        return requestCount;
     }
 }

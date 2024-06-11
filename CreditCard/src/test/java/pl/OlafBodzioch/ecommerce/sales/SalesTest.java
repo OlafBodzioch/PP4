@@ -2,6 +2,8 @@ package pl.OlafBodzioch.ecommerce.sales;
 
 import org.junit.jupiter.api.Test;
 import pl.OlafBodzioch.ecommerce.infastructure.PayUPaymentGw;
+import pl.OlafBodzioch.ecommerce.sales.cart.CartStorage;
+import pl.OlafBodzioch.ecommerce.sales.cart.InMemoryCartStorage;
 import pl.OlafBodzioch.ecommerce.sales.offering.Offer;
 import pl.OlafBodzioch.ecommerce.sales.offering.OfferCalculator;
 import pl.OlafBodzioch.ecommerce.sales.reservation.ReservationRepository;
@@ -22,6 +24,13 @@ public class SalesTest {
 
         assertEquals(0, offer.getItemsCount());
         assertEquals(BigDecimal.ZERO, offer.getTotal());
+    }
+
+    private SalesFacade theresIsSalesFacade() {
+        return new SalesFacade(
+                new InMemoryCartStorage(),
+                new OfferCalculator()
+        );
     }
 
     private String thereIsExampleCustomer(String id) {

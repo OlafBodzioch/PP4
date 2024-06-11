@@ -1,8 +1,10 @@
 package pl.OlafBodzioch.ecommerce.sales.reservation;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pl.OlafBodzioch.ecommerce.sales.AcceptOfferRequest;
 import pl.OlafBodzioch.ecommerce.sales.SalesFacade;
+import pl.OlafBodzioch.ecommerce.sales.cart.CartStorage;
 import pl.OlafBodzioch.ecommerce.sales.offering.OfferCalculator;
 
 import java.math.BigDecimal;
@@ -14,6 +16,12 @@ public class OfferAcceptanceTest {
 
     private SpyPaymentGateway spyPaymentGateway;
     private ReservationRepository reservationRepository;
+
+    @BeforeEach
+    void setUp(){
+        spyPaymentGateway = new SpyPaymentGateway();
+        reservationRepository = new ReservationRepository();
+    }
 
     @Test
     void itAllowsToAcceptAnOffer()
@@ -32,6 +40,7 @@ public class OfferAcceptanceTest {
                 .setLastName("doe")
                 .setEmail("john.doe@example.com");
 
+        sales.acceptOffer(customerId,acceptOfferRequest);
         ReservationDetails reservationDetails = sales.acceptOffer(customerId, acceptOfferRequest);
 
         assertThat(reservationDetails.getReservationId()).isNotBlank();
@@ -44,6 +53,7 @@ public class OfferAcceptanceTest {
         assertReservationTotalMatchOffer(reservationDetails.getReservationId(), BigDecimal.valueOf(20));
 
     }
+
 
     private void assertReservationTotalMatchOffer(String reservationId, BigDecimal expectedTotal)
     {
@@ -86,7 +96,7 @@ public class OfferAcceptanceTest {
 
     private void assertPaymentHasBeenRegistered() {
 
-        assertThat(spyPaymentGateway.getRequestsCount()).isEqualTo(1);
+        assertThat(spyPaymentGateway.getRequestCount()).isEqualTo(1);
 
     }
 

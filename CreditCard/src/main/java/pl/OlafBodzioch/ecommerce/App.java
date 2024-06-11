@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import pl.OlafBodzioch.ecommerce.catalog.ProductCatalog;
 import pl.OlafBodzioch.ecommerce.infastructure.PayUPaymentGw;
 import pl.OlafBodzioch.ecommerce.sales.SalesFacade;
+import pl.OlafBodzioch.ecommerce.sales.cart.CartStorage;
+import pl.OlafBodzioch.ecommerce.sales.cart.InMemoryCartStorage;
 import pl.OlafBodzioch.ecommerce.sales.offering.OfferCalculator;
 import pl.OlafBodzioch.ecommerce.sales.reservation.ReservationRepository;
 
